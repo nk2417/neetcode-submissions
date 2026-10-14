@@ -1,0 +1,29 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        if len(s) != len(t):
+            return False
+
+        def word_count(n):
+            count = {}
+            for char in n:
+                if char in count:
+                    count[char] += 1
+                else:
+                    count[char] = 1
+            return count    
+
+        return word_count(s) == word_count(t)
+
+
+        # counter = {}
+
+        # for i in s:
+        #     counter[i] = counter.get(i, 0) + 1
+
+        # for i in t:
+        #     if i not in counter or counter[i] ==0:
+        #         return False
+        #     counter[i] -= 1
+        # return True
+        
